@@ -16,7 +16,7 @@
     //thêm gender:Male
     $info['gender'] = 'Male';
     $info[] = 'Abc';
-    $info[] = 'Def';
+    $info[] = 'Def';hhhhh
 
     //sửa Nguyen Van A => B
     $info['name'] = 'Nguyen Van B';

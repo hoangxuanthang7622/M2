@@ -33,7 +33,7 @@ const P_I2 = 3.14;
 // print_r ($mang);
 
 
-// var_dump
+// var_dump: string, interger; float, Array,bolean,null
 // var_dump($e) ;
 // echo '<br>';
 // var_dump($d);

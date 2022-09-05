@@ -7,4 +7,4 @@
         echo 'tên lớp không hợp lệ ' . $string;
 
     }
-    
+ 

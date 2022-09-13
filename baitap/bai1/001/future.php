@@ -1,17 +1,11 @@
 <?php
-
-$giatrituonglai = '';
-$giatrihientai = '';
-$laisuat = '';
-$tien ='';
-$sonam ='';
 if ( $_SERVER['REQUEST_METHOD'] == 'POST'){
-    $tien = $_POST['tien'];
-    $laisuat = $_POST['laisuat'];
-    $sonam = $_POST['sonam'];
+    $tien = $_REQUEST['tien'];
+    $laixuat = $_REQUEST['laixuat'];
+    $sonam = $_REQUEST['sonam'];
     $giatrihientai = $tien;
-    $giatrituonglai = $giatrihientai + ($giatrihientai * $laisuat * 0.01) * $sonam;
-    echo $giatrituonglai . " VND ";
+    $giatrituonglai = $giatrihientai + ($giatrihientai * $laixuat/100) *    $sonam;
+    echo $giatrituonglai;
 }
 ?>
 <!DOCTYPE html>
@@ -23,17 +17,14 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST'){
     <title>Document</title>
 </head>
 <body>
-<form action="" method = "POST">
-    
-
+<form action="" method="POST">
   <label for="fname">Lượng tiền đầu tư ban đầu:</label><br>
   <input type="text" id="fname" name="tien"><br>
   <label for="lname">Lãi suất năm:</label><br>
-  <input type="text" id="lname" name="laisuat"><br><br>
+  <input type="text" id="lname" name="laixuat"><br>
   <label for="lname">Số năm đầu tư:</label><br>
   <input type="text" id="lname" name="sonam"><br><br>
-  <input type="submit" value="Submit">
-</form> 
-
+  <input type="submit" value="Calculate">
+</form>
 </body>
 </html>

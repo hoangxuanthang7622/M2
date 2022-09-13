@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 $age=18;
 if($age>=18){
@@ -48,7 +48,7 @@ if ($day >= 2 && $day <= 6){
 }
 echo "<br>";
 //bai 11
-$month = 2;
+$month = 1;
 switch ($month) {
     case 1:      
             echo "31 ngay";
@@ -151,7 +151,7 @@ echo "<br>";
         }
     }
     echo "<br>";
-///bai 25
+//bai 25
     for ($i = 1; $i <= 5; $i ++){
         
         if ( $i == 3){
@@ -167,34 +167,34 @@ echo "<br>";
         }echo $i;
     }
     echo "<br>";
-///bai 27
-// ?>
-// <!DOCTYPE html>
-// <html lang="en">
-// <head>
-//     <meta charset="UTF-8">
-//     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//     <title>Document</title>
-//     <style>
-//         td,tr {
-//             border: 1px solid #ccc;
-//             width: 50px
-//         }
-//     </style>
-// </head>
-// <body>
-//     <?php
-//    echo "<table>";
-// for ($i = 1; $i <= 8; $i ++){
-//     echo "<tr>";
-//    for($j = 1; $j <= 3; $j ++){
-//     echo "<td>" . $i . $j. "</td>";
-//    }
-//    echo "</tr>";
-// }
-// echo "</table>";
-// ?>
+//bai 27
+ ?>
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+         td,tr {
+             border: 1px solid #ccc;
+           width: 50px;
+         }
+   </style>
+ </head>
+ <body>
+    <?php
+   echo "<table>";
+for ($i = 1; $i <= 8; $i ++){
+    echo "<tr>";
+   for($j = 1; $j <= 3; $j ++){
+    echo "<td>" . $i . $j. "</td>";
+   }
+   echo "</tr>";
+}
+echo "</table>";
+ ?>
 
 </body>
 </html>

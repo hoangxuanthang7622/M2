@@ -1,3 +1,50 @@
+<?php
+
+
+if ( $_SERVER['REQUEST_METHOD'] == 'POST'){
+    $sothunhat = $_POST['number1'];
+    $sothuhai = $_POST['number2'];
+    $pheptinh = $_POST['pheptinh'];
+    if(!empty($sothunhat)  && !empty($sothuhai) ){
+
+      switch ($pheptinh) {
+          case "+":
+            $ketqua= $sothunhat + $sothuhai;
+            echo $ketqua;
+            break;
+          case "-":
+              $ketqua = $sothunhat - $sothuhai;
+              echo $ketqua;
+  
+            break;
+          case "*":
+              $ketqua = $sothunhat *$sothuhai;
+            echo $ketqua;
+  
+           
+            break;
+            case "/":
+              if ($sothuhai == 0){
+                  echo "không chia được cho số 0 ";
+              }else{
+                  $ketqua = $sothunhat / $sothuhai;
+            echo $ketqua;
+          }  
+              break;
+        }
+    }
+    else{
+      echo "vui lòng nhập số";
+    }
+}
+
+
+?>
+
+
+
+</body>
+</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,46 +69,3 @@
   <input type="submit" value="Submit">
   
 </form> 
-<?php
-$sothunhat = '';
-$sothuhai = '';
-
-if ( $_SERVER['REQUEST_METHOD'] == 'POST'){
-    $sothunhat = $_POST['number1'];
-    $sothuhai = $_POST['number2'];
-    $pheptinh = $_POST['pheptinh'];
-    $ketqua = '';
-    switch ($pheptinh) {
-        case "+":
-          $ketqua= $sothunhat + $sothuhai;
-          echo $ketqua;
-          break;
-        case "-":
-            $ketqua = $sothunhat - $sothuhai;
-            echo $ketqua;
-
-          break;
-        case "*":
-            $ketqua = $sothunhat *$sothuhai;
-          echo $ketqua;
-
-         
-          break;
-          case "/":
-            if ($sothuhai == 0){
-                echo "không chia được cho số 0 ";
-            }else{
-                $ketqua = $sothunhat / $sothuhai;
-          echo $ketqua;
-        }  
-            break;
-      }
-}
-
-
-?>
-
-
-
-</body>
-</html>

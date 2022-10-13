@@ -104,7 +104,10 @@ $conn->exec($sql);
   <input type="number" id="fname" class="form-control" name="quantity"><br>
  
   
-  <input type="submit" class="btn btn-primary" value="ADD">
+  <input type="submit" class="btn btn-primary" value="Thêm">
+  <a href="index.php" class="btn btn-danger">Huỷ</a>
+  
+  
   <?php 
 include_once '../layout/footer.php';
 ?>

@@ -24,4 +24,21 @@ for($i = 1; $i < count($songuyen1); $i ++){
 }
 echo $min1;
 
+
+
+$songuyen1 = [3,4,7,9,4,1];
+function findMin($array){
+    $min1 = $array[0];
+    for($i = 1; $i < count($array); $i ++){
+            if($array[$i] < $min1){
+                $min1 = $array[$i];
+            }
+    }
+    echo $min1;
+}
+findmin($songuyen1);
+
 ?>
+
+
+

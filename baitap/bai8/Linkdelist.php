@@ -19,7 +19,7 @@ include ("Node.php");
         public function addLast($nodeItem){
             $node = new Node($nodeItem);
             if(!$this-> head){
-                
+                $this->addLast = $node;
             }
         }
         public function removeFirst(){

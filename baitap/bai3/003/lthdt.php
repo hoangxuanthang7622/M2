@@ -56,14 +56,18 @@
 //gọi phương thức in ra giá trị name và color
    $cun -> setName("phi");
    $cun -> setColor("hồng cánh sen");
+//in đối tượng
+echo '<pre>';
+print_r($cun);
+echo '</pre>';
+
+//truy xuất thuộc tính
    echo $cun -> name;
    echo '<br>';
    echo $cun -> color;
-   echo '<pre>';
-     print_r($cun);
-    echo '<pre>';
+   
 
-    //gọi phương thức trả về giá trị name và color
+//     //gọi phương thức trả về giá trị name và color
   echo $cun -> getName();
   echo "<br>";
   echo $cun -> getColor();

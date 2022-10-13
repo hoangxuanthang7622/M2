@@ -1,5 +1,11 @@
-<footer class="footer text-center"> 2022 © Ample Admin brought to you by <a
-                    href="https://www.facebook.com/hoang.xuanthang.798/">FBhoangxuanthang.com</a>
+<footer>
+    
+    
+				<a href="https://www.facebook.com/"><span><i class="fab fa-facebook-square"></i></span></a>	
+                <a href="https://www.gmail.com/"><span><i class="fab fa-google-plus-square"></i></span></a>	
+                <a href="https://www.twitter.com/"><span><i class="fab fa-twitter-square"></i></span></a>	
+				</div>
+
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

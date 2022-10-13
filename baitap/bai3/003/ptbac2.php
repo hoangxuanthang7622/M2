@@ -1,5 +1,6 @@
 
 <?php
+    
  if ( $_SERVER['REQUEST_METHOD'] == 'POST'){
     $a = $_POST['a'];
     $b = $_POST['b'];
@@ -16,14 +17,14 @@
             $this->c = $c1;
         }
         public function getA(){
-            return $this-> $a;
+            return $this-> a;
         }
         public function getB(){
-            return $this-> $b;
+            return $this-> b;
             
         }
         public function getC(){
-            return $this-> $c;
+            return $this-> c;
             
         }
         public function getDiscriminant(){

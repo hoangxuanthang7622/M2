@@ -21,8 +21,12 @@ $stmt = $conn->query($sql);
 $stmt->setFetchMode(PDO::FETCH_OBJ);
 //fetchALL se tra ve du lieu nhieu hon 1 ket qua
 $rows = $stmt->fetchAll();
+
 ?>
-<a  class="btn btn-primary" href="add.php">ADD</a>
+<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Khách hàng</h4>
+                    </div>
+<a  class="btn btn-primary" href="add.php">Thêm</a>
 <div class="container">
 <table class = "table">
 <thead class="thead-dark">
@@ -42,8 +46,8 @@ $rows = $stmt->fetchAll();
         <td><?=$row->address?></td>
         <td><?=$row->phone?></td>
         <td>
-            <a class="btn btn-success" href="edit.php?id=<?=$row->id_client?>">edit</a>
-            <a class="btn btn-danger"  onclick=" return confirm('Bạn có chắc chắn xoá không ?')"    href="delete.php?id=<?=$row->id_client?>">delete</a>
+            <a class="btn btn-success" href="edit.php?id=<?=$row->id_client?>">Chỉnh sửa</a>
+            <a class="btn btn-danger"  onclick=" return confirm('Bạn có chắc chắn xoá không ?')"    href="delete.php?id=<?=$row->id_client?>">Xoá</a>
         </td>
     </tr>
     <?php endforeach; ?>

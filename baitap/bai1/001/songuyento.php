@@ -2,10 +2,9 @@
    <?php
     if ( $_SERVER['REQUEST_METHOD'] == 'POST'){
         $number = $_POST['number'];
-        // $number ='';
 $dem = 0;
 $count = 0;
-$sum = 0;
+// $sum = 0;
 for ($i = 2; $i < 1000; $i ++){
     for($j = 1; $j <= $i; $j ++){
         if ( $i % $j == 0){
@@ -14,11 +13,12 @@ for ($i = 2; $i < 1000; $i ++){
     }
     if($dem == 2){
         $count ++;
-        $sum += $i;
+        // $sum += $i;
+        echo $i.',';    
         
         if($count == $number){
-            echo $sum;
-            break;
+            // echo $sum;
+            break;  
         }
     }
     $dem = 0;

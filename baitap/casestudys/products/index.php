@@ -4,7 +4,7 @@ global $conn;
 $sql = "SELECT * FROM `products` JOIN categories
 ON products.category_id = categories.id_categories
 JOIN sizes
-ON sizes.id = products.size_id";
+ON sizes.id = products.size_id WHERE products.Garbage_can is  NULL";
 $stmt = $conn->query($sql);
 $stmt->setFetchMode(PDO::FETCH_OBJ);
 //fetchALL se tra ve du lieu nhieu hon 1 ket qua
@@ -29,8 +29,14 @@ include_once "../layout/header.php";
 include_once '../layout/header.php';
 include_once "../database.php";
  ?>
+<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Giày</h4>
+                    </div>
+<a  class="btn btn-primary" href="add.php">Thêm sản phẩm</a>
+<a  class="btn btn-primary" href="Garbage.php">Thùng rác <svg style="color:white; font-size:20px" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+</svg></a>
 
-<a  class="btn btn-primary" href="add.php">ADD</a>
 <div class="container-fluid">
 
 <table class="table">
@@ -58,8 +64,8 @@ include_once "../database.php";
       
         <td><?=number_format($value->price)." VNĐ"?></td>
         <td>    
-            <a class="btn btn-success" href="edit.php?id=<?=$value->id_product?>">edit</a>
-            <a class="btn btn-danger" onclick=" return confirm('Bạn có chắc chắn xoá không ?') " href="delete.php?id=<?=$value->id_product?>">delete</a>
+            <a class="btn btn-success" href="edit.php?id=<?=$value->id_product?>">Chỉnh sửa</a>
+            <a class="btn btn-danger" onclick=" return confirm('Bạn có chắc chắn xoá không ?') " href="destroy.php?id=<?=$value->id_product?>">Xoá</a>
         </td>
     </tr>
     <?php endforeach; ?>

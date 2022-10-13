@@ -1,16 +1,12 @@
 <?php
-    abstract class HinhHoc{
-        public $name;
-        public abstract function chuvi();
-        public abstract function dientich();
+    abstract class HinhHoc2{
+        abstract function chuvi();
+        abstract function dientich();
 
-        public function getName(){
-
-        }
+      
     }
-    // $HinhHoc1 = new HinhHoc();
 
-    class HinhChuNhat extends HinhHoc{
+    class HinhTron2 extends HinhHoc2{
         public function chuvi(){
 
         }
@@ -18,4 +14,5 @@
             
         }
     }
+    
 ?>

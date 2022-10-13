@@ -19,7 +19,10 @@ $stmt->setFetchMode(PDO::FETCH_OBJ);
 $rows = $stmt->fetchAll();
 // print_r ($rows);
 ?>
-<a  class="btn btn-primary" href="add.php">ADD</a>
+ <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Danh mục sản phẩm</h4>
+                    </div>
+<a  class="btn btn-primary" href="add.php">Thêm</a>
 <div class="container-fluid">
 
 <table class="table">
@@ -33,8 +36,8 @@ $rows = $stmt->fetchAll();
         <td><?=$key + 1?></td>
         <td><?=$row->name_category?></td>
         <td>
-            <a class="btn btn-success" href="edit.php?id=<?=$row->id_categories?>">edit</a>
-            <a class="btn btn-danger" onclick=" return confirm('Bạn có chắc chắn xoá không ?')" href="delete.php?id=<?=$row->id_categories?>">delete</a>
+            <a class="btn btn-success" href="edit.php?id=<?=$row->id_categories?>">Chỉnh sửa</a>
+            <a class="btn btn-danger" onclick=" return confirm('Bạn có chắc chắn xoá không ?')" href="delete.php?id=<?=$row->id_categories?>">Xoá</a>
         </td>
     </tr>
     <?php endforeach; ?>

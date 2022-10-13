@@ -34,8 +34,8 @@ $rows = $stmt->fetch();
                         }
                           ?></span>
             </div>
-            <button type="submit" class="btn btn-primary">Update</button>
-            <a href="index.php" class="btn btn-danger">cancel</a>
+            <button type="submit" class="btn btn-primary">Chỉnh sửa</button>
+            <a href="index.php" class="btn btn-danger">Huỷ</a>
         </form>
     </div>
 

@@ -1,7 +1,7 @@
 <?php
 
-include_once(dirname(__FILE__) . '/Animals/Chicken.php');
-include_once(dirname(__FILE__) . '/Animals/Tiger.php');
+include_once( 'dd/Chicken.php');
+include_once('dd/Tiger.php');
 
 // include "/../Animals/Tiger.php";
 // include "/../Animals/Chicken.php";

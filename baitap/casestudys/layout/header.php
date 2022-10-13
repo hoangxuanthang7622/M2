@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -58,7 +59,7 @@
                             </form>
                         </li>
                         <li>
-                            <a class="profile-pic" href="./../main/index.php">
+                            <a class="profile-pic" href="../login/login.php?idss=1">
                                 <img src="../plugins/images/users/thang.jpg" alt="user-img" width="36"
                                     class="img-circle"><span class="text-white font-medium">Đăng xuất</span></a>
                         </li>
@@ -73,14 +74,14 @@
                         <li class="sidebar-item pt-2">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="./../main/index.php"
                                 aria-expanded="false">
-                                <i class="far fa-clock" aria-hidden="true"></i>
+                                <i class="fa fa-home" aria-hidden="true"></i>
                                 <span class="hide-menu">Trang chủ</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../categories/index.php"
                                 aria-expanded="false">
-                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <i class="fa fa-bars" aria-hidden="true"></i>
                                 <span class="hide-menu">Danh mục sản phẩm</span>
                             </a>
                         </li>
@@ -88,21 +89,22 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../products/index.php"
                                 aria-expanded="false">
-                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                <i class=" fas fa-capsules" aria-hidden="true"></i>
                                 <span class="hide-menu">Giày</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../clients/index.php"
                                 aria-expanded="false">
-                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                
                                 <span class="hide-menu">Khách hàng  </span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../orders_products/index.php"
                                 aria-expanded="false">
-                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                <i class="fa fa-truck" aria-hidden="true"></i>
                                 <span class="hide-menu">Đơn hàng</span>
                             </a>
                         </li>
@@ -115,17 +117,15 @@
         <div class="page-wrapper">
             <div class="page-breadcrumb bg-white">
                 <div class="row align-items-center">
-                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Danh mục sản phẩm</h4>
-                    </div>
+                  
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <div class="d-md-flex">
-                            <ol class="breadcrumb ms-auto">
+                            <!-- <ol class="breadcrumb ms-auto">
                                 <li><a href="#" class="fw-normal">Dashboard</a></li>
-                            </ol>
-                            <a href="https://www.wrappixel.com/templates/ampleadmin/" target="_blank"
+                            </ol> -->
+                            <!-- <a href="https://www.wrappixel.com/templates/ampleadmin/" target="_blank"
                                 class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Upgrade
-                                to Pro</a>
+                                to Pro</a> -->
                         </div>
                     </div>
                 </div>

@@ -97,7 +97,9 @@ include_once '../layout/header.php';
 
       </div>
       
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Thêm</button>
+      <a href="index.php" class="btn btn-danger">Huỷ</a>
+
       </form>
       </div>
       </div>

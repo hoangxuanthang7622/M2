@@ -1,7 +1,7 @@
 <?php
 include_once 'DongHa/Tam.php';
 include_once 'GioLinh/Tam.php';
-
+//use namespace\ten_class
 use DongHa\Tam;
 use GioLinh\Tam as TamGioLinh;
 

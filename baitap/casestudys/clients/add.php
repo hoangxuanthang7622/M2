@@ -63,7 +63,9 @@ include_once '../layout/header.php';
       <input type="checkbox" class="form-check-input" id="exampleCheck1">
       <label class="form-check-label" for="exampleCheck1">Check me out</label>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Thêm</button>
+      <a href="index.php" class="btn btn-danger">Huỷ</a>
+
       </form>
       </div>
       </div>

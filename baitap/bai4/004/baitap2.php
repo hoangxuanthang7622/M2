@@ -40,7 +40,10 @@ $a = new maEmployee();
    $a->add(new Employee("xuan","thang",7,"giolinh","nhanvien"))  ;
     $a->add(new Employee("van","phi",6,"giolinh","nhanvien")) ;
     $a->add(new Employee("xuan","cuong",29,"giolinh","nhanvien")) ; 
-    
+    echo '<pre>';
+print_r($a);
+echo '</pre>';
+
 
 
 
@@ -61,10 +64,10 @@ $a = new maEmployee();
     //          $ma_nv_tiep_theo = this-> lay_id_tiep_theo();
     //     //tạo mảng data_employee
     //     $data_employee = [
-    //         'ma_nv' => $ma_nv_tiep_theo;
-    //         'ho_va_ten' => $ho_va_ten;
-    //         'so_dien_thoai' => $so_dien_thoai;
-    //         'email' => $email;
+    //         'ma_nv' => $ma_nv_tiep_theo,
+    //         'ho_va_ten' => $ho_va_ten,
+    //         'so_dien_thoai' => $so_dien_thoai,
+    //         'email' => $email
 
     //     ];
     //     $data_array[] = $this-> lay_ta_ca();

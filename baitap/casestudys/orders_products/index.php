@@ -27,7 +27,10 @@ $stmt->setFetchMode(PDO::FETCH_OBJ);
 //fetchALL se tra ve du lieu nhieu hon 1 ket qua
 $rows = $stmt->fetchAll();
 ?>
-<a  class="btn btn-primary" href="add.php">ADD</a>
+<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Đơn hàng</h4>
+                    </div>
+<a  class="btn btn-primary" href="add.php">Thêm</a>
 <div class="container">
 <table class = "table">
 <thead class="thead-dark">
@@ -47,7 +50,7 @@ $rows = $stmt->fetchAll();
         <td><?=$row->phone?></td>
         <td><?=$row->order_day?></td>
         <td>
-            <a class="btn btn-success" href="./../orders_detail/index.php?id=<?=$row->id?>">Show</a>
+            <a class="btn btn-success" href="./../orders_detail/index.php?id=<?=$row->id?>">Xem</a>
           
     </tr>
     <?php endforeach; ?>

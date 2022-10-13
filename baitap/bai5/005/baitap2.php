@@ -14,11 +14,11 @@
             return $this-> y;
             
         }
-        public function setX(){
+        public function setX(float $x){
             $this-> x = $x;
             
         }
-        public function setY(){
+        public function setY(float $y){
             $this-> y = $y;
             
         }
@@ -42,7 +42,7 @@
           return  $this->z ;
 
         }
-        public function setZ(float $z):float {
+        public function setZ(float $z) {
             $this->z = $z;
 
         }

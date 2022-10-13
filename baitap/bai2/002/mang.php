@@ -3,49 +3,46 @@
     $books2 = ['văn','sử','địa'];
 
     //in ra mảng
-    echo '<pre>';
-    print_r($books);
-    echo '<pre>';
-
-    //độ dài
-    echo count($books);
-    //duyệt mảng
+    
+    // //độ dài
+    // echo count($books);
+    // //duyệt mảng
     for($i = 0; $i < count($books); $i++){
         echo $books[$i] . "<br>";
     }
-    //thêm 
+    // //thêm 
     $books[count($books)] = "sinh";
     array_push($books,"lý");
     $books[] = "Anh";
     
-    //sửa
+    // //sửa
     $books[0] = 'Văn Học';
     $books[1] = 'Sử Học';
 
-    //xóa
+    // //xóa
     unset( $books[5] );
-    print_r($books) ;
+    // print_r($books) ;
 
-    // //xóa phần tử đầu tiên
-    // array_shift( $books );
+    // // //xóa phần tử đầu tiên
+    array_shift( $books );
 
-    // //xóa phần tử cuối
-    // array_pop( $books );
-    echo '<br>';
+    // // //xóa phần tử cuối
+    array_pop( $books );
+    // echo '<br>';
 
-    echo '<pre>';
-    print_r($books);
-    echo '</pre>';
+ 
 
-     // for ($i=0; $i < count($books); $i++) { 
-    //     if( isset($books[$i]) ){
-    //         echo $books[$i].'<br>';
-    //     }
-    // }
+     for ($i=0; $i < count($books); $i++) { 
+        if( isset($books[$i]) ){
+            echo $books[$i].'<br>';
+        }
+    }
 
     foreach( $books as $key => $book ){
         echo 'Key: '.$key.' - Value: '.$book.'<br>';
     }
 
-
+   echo '<pre>';
+    print_r($books);
+    echo '</pre>';
 ?>

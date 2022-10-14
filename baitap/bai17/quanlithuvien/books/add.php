@@ -57,7 +57,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
   <label for="fname">Giá</label><br>
   <input type="number" id="fname" name="price" placeholder="Giá tiền"><br>
   <span ><?php if(isset($err['price'])){echo $err['price'];}; ?></span><br>
-  <input type="submit" value="ADD">
+  <input type="submit" class="btn btn-primary" value="ADD">
+  
+  <a href="index.php" class="btn btn-danger">cancel</a>
+
 </form>
 </body>
 </html>

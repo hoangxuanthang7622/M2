@@ -44,6 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 global $conn;
 $sql = "SELECT * FROM students JOIN classs
 ON students.class_id = classs.id_class";
+print_r($sql);
+die();
 $stmt = $conn->query($sql);
 $stmt->setFetchMode(PDO::FETCH_OBJ);
 //fetchALL se tra ve du lieu nhieu hon 1 ket qua

@@ -14,8 +14,9 @@
     <?php
     include_once('system/libs/main.php');
     $main = new Main();
-    $url = $_REQUEST['url'];
+    $url = $_GET['url'];
     $url = explode('/',$url);
+    
     echo '<pre>';
     print_r($url);
     echo '</pre>';

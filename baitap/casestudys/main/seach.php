@@ -4,16 +4,27 @@ session_start();
                 <?php
 include_once "../database.php";
 global $conn;
-$sql = "SELECT * FROM `products` JOIN categories
-ON products.category_id = categories.id_categories
-JOIN sizes
-ON sizes.id = products.size_id WHERE products.Garbage_can is  NULL";
-$stmt = $conn->query($sql);
-$stmt->setFetchMode(PDO::FETCH_OBJ);
-//fetchALL se tra ve du lieu nhieu hon 1 ket qua
-$rows = $stmt->fetchAll();
+if($_SERVER ['REQUEST_METHOD'] == 'POST') {
+    $seach = $_REQUEST['seach'];
+}
 
-$sql3 = "SELECT COUNT('id_product') as soluong FROM `products` WHERE products.Garbage_can is  NULL";
+    $err = [];
+    if(empty($seach)){
+        $err["seach"] = 'vui lòng nhập dữ liệu tìm kiếm';
+    }
+    if(empty($err)){
+        $sql = "SELECT * FROM `products` JOIN categories
+        ON products.category_id = categories.id_categories
+        JOIN sizes
+        ON sizes.id = products.size_id WHERE (name_product LIKE '%$seach%' OR name_category LIKE '%$seach%' OR price LIKE '%$seach%' ) && products.Garbage_can is  NULL";
+        $stmt = $conn->query($sql);
+        $stmt->setFetchMode(PDO::FETCH_OBJ);
+        //fetchALL se tra ve du lieu nhieu hon 1 ket qua
+        $rows = $stmt->fetchAll();
+    }
+
+
+$sql3 = "SELECT COUNT('id_product') as soluong FROM `products`";
 $stmt3 = $conn->query($sql3);
 $stmt3->setFetchMode(PDO::FETCH_OBJ);
 //fetchALL se tra ve du lieu nhieu hon 1 ket qua
@@ -119,12 +130,12 @@ $rows2 = $stmt2->fetch();
                         <!-- Search -->
                         <!-- ============================================================== -->
                         <li class=" in">
-                            <form role="search" class="app-search d-none d-md-block me-3" action="seach.php" method="post">
-                                <input type="text" name ='seach' placeholder="Search..." class="form-control mt-0">
-                                <!-- <a href="" class="active">
+                            <form role="search" class="app-search d-none d-md-block me-3">
+                                <input type="text" placeholder="Search..." class="form-control mt-0">
+                                <a href="" class="active">
                                     <i class="fa fa-search"></i>
-                                </a> -->
-                                <input type="submit" value="Tìm Kiếm">
+                                </a>
+                                <input type="submit" value="Tìm kiếm">
                             </form>
                         </li>
                         <!-- ============================================================== -->
@@ -326,6 +337,10 @@ if($_SESSION["name_client"]) {
 
 
 
+<?php 
+if(isset($rows)){?>
+
+
 
 <table class="table">
     <tr class="thead-dark">
@@ -355,6 +370,7 @@ if($_SESSION["name_client"]) {
     </tr>
     <?php endforeach; ?>
 </table>
+<?php } ?>
 
                 <div class="row">
                     <!-- .col -->

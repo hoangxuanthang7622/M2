@@ -113,7 +113,9 @@ $conn->exec($sql);
   <input type="number" id="fname" class="form-control" name="quantity"><br>
  
   
-  <input type="submit" value="ADD">
+  <input type="submit" class="btn btn-primary" value="ADD">
+  <a href="index.php" class="btn btn-danger">cancel</a>
+
 </form>
 </body>
 </html>

@@ -15,7 +15,13 @@ include_once "../database.php";
 <?php 
 global $conn;
 $id = $_REQUEST['id'];
-        $sql = " SELECT * FROM students JOIN orders_books ON students.id_students =orders_books.student_id JOIN orders_detail ON orders_books.id = orders_detail.order_books_id JOIN books ON orders_detail.book_id = books.id JOIN categories ON books.category_id = categories.id WHERE order_product_id  = $id  ";  
+$sql =" SELECT *,students.name as name_student FROM students 
+JOIN orders_books ON students.id_students =orders_books.student_id 
+JOIN orders_detail ON orders_books.id = orders_detail.order_books_id 
+JOIN books ON orders_detail.book_id = books.id 
+JOIN categories ON books.category_id = categories.id
+where students.id_students = $id"; 
+
 $stmt = $conn->query($sql);
 $stmt->setFetchMode(PDO::FETCH_OBJ);
 //fetchALL se tra ve du lieu nhieu hon 1 ket qua

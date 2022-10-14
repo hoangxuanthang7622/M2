@@ -29,13 +29,14 @@ $items = $stmt->fetch();
     if($name_product == ''){
         $err['name']="không thể để trống mục này!";
     }   
-    if($image == ''){
-        $err['image']="không thể để trống mục này!";
-    }  
+  
     if($price == ''){
         $err['price']="không thể để trống mục này!";
     }   
     if(empty($err)){
+        if(empty($_REQUEST['image'])){
+            $image = $items->image;
+        }
         $sql = "UPDATE products SET `name_product` = '$name_product', `category_id` = $category_id,`size_id` = $size, `price` = $price ,`image`='$image' WHERE id_product='$id'";
         $conn->query($sql);
         header('location:index.php');
@@ -85,6 +86,7 @@ $items = $stmt->fetch();
                 <input type="text" name="price" id="" class="form-control" placeholder="Giá tiền" value="<?php echo $items->price; ?>">
                 <label for="exampleInputPassword1">Ảnh</label>
       <input type="file" class="form-control" id="exampleInputPassword1" name ="image">
+        <td><img src="<?=$items->image?>" style = "width: 100px" alt=""></td>
              
           
                 <span><?php if (isset($err['price'])) {

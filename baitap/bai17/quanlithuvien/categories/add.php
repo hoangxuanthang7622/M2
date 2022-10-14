@@ -43,7 +43,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 <form method = 'POST'>
   <label for="fname">Tên Danh mục sản phẩm</label><br>
   <input type="text" id="fname" class="form-control name="category"><br>
-  <input type="submit" value="Submit">
+  <input type="submit" class="btn btn-primary" value="Submit">
+  <a href="index.php" class="btn btn-danger">cancel</a>
+
 </form>
 </body>
 </html>

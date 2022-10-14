@@ -1,23 +1,51 @@
 <?php 
-include_once '../database.php';
- if($_SERVER['REQUEST_METHOD'] == 'POST'){
-$account = $_REQUEST['account'];
-$password = md5($_REQUEST['password']);
+// session_start();
+// include_once '../database.php';
+//  if($_SERVER['REQUEST_METHOD'] == 'POST'){
+// $account = $_REQUEST['account'];
+// $password = md5($_REQUEST['password']);
 
 
-global $conn;
-$sql = "SELECT * FROM clients WHERE email = '$account'";
-$stmt = $conn->query($sql);
-$stmt->setFetchMode(PDO::FETCH_OBJ);
-//fetch se tra ve du lieu 1 ket qua
-$items = $stmt->fetch();
+// global $conn;
+// $sql = "SELECT * FROM clients WHERE email = '$account'";
+// $stmt = $conn->query($sql);
+// $stmt->setFetchMode(PDO::FETCH_OBJ);
+// //fetch se tra ve du lieu 1 ket qua
+// $items = $stmt->fetch();
+// if(is_array($items)) {
+// 	$_SESSION["id_client"] = $items['id_client'];
+// 	$_SESSION["name_client"] = $items['name_client'];
+// 	} 
 
-if($items->email == $account && $items->password ==$password){
-    header('location:../main/index.php');
-}
 
+// 	if(isset($_SESSION["id_client"])) {
+//     header('location:../main/index.php');
+// 	}
+
+
+//  }
+ session_start();
+ $message="";
+ if(count($_POST)>0) {
+	 $con = mysqli_connect('localhost','root','','casestudy') or die('Unable To connect');
+	 $result = mysqli_query($con,"SELECT * FROM clients WHERE email='" . $_POST["account"] . "' and password = '". md5($_POST['password'])."'");
+	 $row  = mysqli_fetch_array($result);
+	 if(is_array($row)) {
+	 $_SESSION["id_client"] = $row['id_client'];
+	 $_SESSION["name_client"] = $row['name_client'];
+	 } else {
+	  $message = "Invalid Username or Password!";
+	 }
  }
+ if(isset($_SESSION["id_client"])) {
+	header('location:../main/index.php');
+ }
+//  else{
+// 	header('location:login.php');
+//  }
+ 
 ?>
+
 
 
 

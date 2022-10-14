@@ -14,7 +14,7 @@ include_once "../database.php";
 ?>
 <?php 
 global $conn;
-        $sql =" SELECT * FROM students 
+        $sql =" SELECT *,students.name as name_student FROM students 
         JOIN orders_books ON students.id_students =orders_books.student_id 
         JOIN orders_detail ON orders_books.id = orders_detail.order_books_id 
         JOIN books ON orders_detail.book_id = books.id 
@@ -39,13 +39,13 @@ $rows = $stmt->fetchAll();
     <?php foreach($rows as $key=> $row) : ?>
     <tr>
         <td><?=$key + 1?></td>
-        <td><?=$row->name?></td>
+        <td><?=$row->name_student?></td>
         <td><?=$row->name?></td>
         <td><?=$row->name_category?></td>
         <td><?=$row->quantity?></td>
         
         <td>
-            <a class="btn btn-warning" href="../order_detail/index.php?id=<?=$row->id_client?>">Show</a>
+            <a class="btn btn-warning" href="../order_detail/index.php?id=<?=$row->id_students?>">Show</a>
             
         </td>
     </tr>

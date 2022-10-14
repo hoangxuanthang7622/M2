@@ -73,7 +73,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
   <span><?php if(isset($err['phone'])){echo $err['phone'];}; ?></span><br>
 
   
-  <input type="submit" value="ADD">
+  <input type="submit" class="btn btn-primary" value="ADD">
+  <a href="index.php" class="btn btn-danger">cancel</a>
+
 </form>
 </body>
 </html>

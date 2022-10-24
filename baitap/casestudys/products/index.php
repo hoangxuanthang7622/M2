@@ -9,7 +9,7 @@ $stmt = $conn->query($sql);
 $stmt->setFetchMode(PDO::FETCH_OBJ);
 //fetchALL se tra ve du lieu nhieu hon 1 ket qua
 $rows = $stmt->fetchAll();
-include_once "../layout/header.php";
+include_once "../layout/header.php";    
 
 
 ?>

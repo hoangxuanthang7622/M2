@@ -2,17 +2,20 @@
  include_once '../db.php';
 $id = $_REQUEST['id'];
 // echo $id;
-$sql = "SELECT * FROM students";    
-$stmt = $conn->query($sql);
-$stmt->setFetchMode(PDO::FETCH_OBJ);
-//fetch se tra ve du lieu 1 ket qua
-$rows = $stmt->fetchAll();
 
-$sql = "SELECT * FROM students WHERE id='$id'";
+
+$sql = "SELECT * From students where id = $id";
 $stmt = $conn->query($sql);
 $stmt->setFetchMode(PDO::FETCH_OBJ);
 //fetch se tra ve du lieu 1 ket qua
 $items = $stmt->fetch();
+
+$sql1 = "SELECT * FROM class";
+
+$stmt1 = $conn->query($sql1);
+$stmt1->setFetchMode(PDO::FETCH_OBJ);
+//fetch se tra ve du lieu 1 ket qua
+$rows1 = $stmt1->fetchAll();
 
  if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $name = $_REQUEST['name'];
@@ -36,7 +39,7 @@ $items = $stmt->fetch();
         $err['thongtin']="không thể để trống mục này!";
         }  
     if(empty($err)){
- $sql = "UPDATE students SET `name` = '$name', `class` = '$class', `birthday` = '$birthday', `gender` = '$gender', `thongtin` = '$thongtin'  WHERE id_students='$id'";
+ $sql = "UPDATE students SET `name` = '$name', `class` = '$class', `birthday` = '$birthday', `gender` = '$gender', `thongtin` = '$thongtin'  WHERE id='$id'";
    
     $conn->query($sql);
     header('location:index.php');
@@ -65,15 +68,19 @@ $items = $stmt->fetch();
         <form method="post" action="">
             <legend>students edit</legend>
             <div class="mb-3">
-                <label for="disabledTextInput" class="form-label">name</label>
+                <label for="disabledTextInput" class="form-label">Tên học sinh</label>
                 <input type="text" name="name" id="" class="form-control" value="<?php echo $items->name; ?>">
-                <label for="disabledTextInput" class="form-label">address</label>
-                <input type="text" name="class" id="" class="form-control" value="<?php echo $items->class; ?>">
-                <label for="disabledTextInput" class="form-label">class</label>
+                <label for="fname"></label><br>
+  <select name="class" placeholder="Lớp" class="form-control" id="">
+                    <?php foreach ($rows1 as $row) {?>
+                        <option <?=$row->id == $items->class ? "selected" : " " ?> value="<?=$row->id;?>"><?=$row->name_class;?></option>
+                    <?php } ?>
+                </select><br>
+                <label for="disabledTextInput" class="form-label">Ngày sinh</label>
                 <input type="text" name="birthday" id="" class="form-control" value="<?php echo $items->birthday; ?>">
-                <label for="disabledTextInput" class="form-label">phone</label>
+                <label for="disabledTextInput" class="form-label">Giới tính</label>
                 <input type="text" name="gender" id="" class="form-control" value="<?php echo $items->gender; ?>">
-                <label for="disabledTextInput" class="form-label">phone</label>
+                <label for="disabledTextInput" class="form-label">Thông tin học sinh</label>
                 <input type="text" name="thongtin" id="" class="form-control" value="<?php echo $items->thongtin; ?>">
              
              
@@ -96,8 +103,8 @@ $items = $stmt->fetch();
                         }
                           ?></span>
             </div>
-            <button type="submit" class="btn btn-primary">Update</button>
-            <a href="index.php" class="btn btn-danger">cancel</a>
+            <button type="submit" class="btn btn-primary">Lưu</button>
+            <a href="index.php" class="btn btn-danger">Huỷ</a>
         </form>
     </div>
 </body>

@@ -61,11 +61,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
   <span><?php if(isset($err['name'])){echo $err['name'];}; ?></span><br>
 
    <label for="disabledTextInput"></label><br>
-  <input type="text" id="fname" class="form-control" placeholder="Lớp" name="address"><br>
+  <input type="text" id="fname" class="form-control" placeholder="Lớp" name="class"><br>
   <span><?php if(isset($err['address'])){echo $err['address'];}; ?></span><br>
 
   <label for="disabledTextInput"></label><br>
-  <input type="text" id="fname" class="form-control" placeholder="Địa chỉ" name="class"><br>
+  <input type="text" id="fname" class="form-control" placeholder="Địa chỉ" name="address"><br>
   <span><?php if(isset($err['class'])){echo $err['class'];}; ?></span><br>
 
   <label for="disabledTextInput"></label><br>

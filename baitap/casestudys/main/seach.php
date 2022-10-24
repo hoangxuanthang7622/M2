@@ -149,7 +149,6 @@ $rows2 = $stmt2->fetch();
                                     class="img-circle"><span class="text-white font-medium">Đăng xuất</span></a> -->
  
 <?php
-session_start();
 
 if($_SESSION["name_client"]) {
 ?>
@@ -303,6 +302,40 @@ if($_SESSION["name_client"]) {
                 <!-- ============================================================== -->
                 <!-- PRODUCTS YEARLY SALES -->
                 <!-- ============================================================== -->
+                <?php 
+if(isset($rows)){?>
+
+
+
+<table class="table">
+    <tr class="thead-dark">
+    <th id = "a">ID</th>
+        <th>Tên sản phẩm</th>
+        <th>Danh mục sản phẩm</th>
+        <th>Size</th>
+        <th>Ảnh</th>
+        <th>Mô tả</th>
+        <th>Giá</th>
+ 
+     
+
+
+    </tr>
+    <?php foreach($rows as $key=>$value) : ?>
+    <tr>
+    <td><?=$key+1?></td>
+        <td><?=$value->name_product?></td>
+        <td><?=$value->name_category?></td>
+        <td><?=$value->size?></td>
+        <td><img src="<?= '../products/'.$value->image?>" style = "width: 100px" alt=""></td>
+        <td><?=$value->desc?></td>
+      
+        <td><?=number_format($value->price)." VNĐ"?></td>
+       
+    </tr>
+    <?php endforeach; ?>
+</table>
+<?php } ?>
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="white-box">
@@ -337,40 +370,7 @@ if($_SESSION["name_client"]) {
 
 
 
-<?php 
-if(isset($rows)){?>
 
-
-
-<table class="table">
-    <tr class="thead-dark">
-    <th id = "a">ID</th>
-        <th>Tên sản phẩm</th>
-        <th>Danh mục sản phẩm</th>
-        <th>Size</th>
-        <th>Ảnh</th>
-        <th>Mô tả</th>
-        <th>Giá</th>
- 
-     
-
-
-    </tr>
-    <?php foreach($rows as $key=>$value) : ?>
-    <tr>
-    <td><?=$key+1?></td>
-        <td><?=$value->name_product?></td>
-        <td><?=$value->name_category?></td>
-        <td><?=$value->size?></td>
-        <td><img src="<?= '../products/'.$value->image?>" style = "width: 100px" alt=""></td>
-        <td><?=$value->desc?></td>
-      
-        <td><?=number_format($value->price)." VNĐ"?></td>
-       
-    </tr>
-    <?php endforeach; ?>
-</table>
-<?php } ?>
 
                 <div class="row">
                     <!-- .col -->

@@ -4,15 +4,33 @@ session_start();
                 <?php
 include_once "../database.php";
 global $conn;
+$start = 1;  
+$per_page = 4;
+$page_counter = 0;
+$next = $page_counter + 1;
+$previous = $page_counter - 1;
+
+if(isset($_GET['start'])){
+ $start = $_GET['start'];
+ $page_counter =  $_GET['start'];
+ $start = $start *  $per_page;
+ $next = $page_counter + 1;
+ $previous = $page_counter - 1;
+}
 $sql = "SELECT * FROM `products` JOIN categories
 ON products.category_id = categories.id_categories
 JOIN sizes
-ON sizes.id = products.size_id WHERE products.Garbage_can is  NULL";
+ON sizes.id = products.size_id WHERE products.Garbage_can is  NULL LIMIT $start, $per_page";
 $stmt = $conn->query($sql);
 $stmt->setFetchMode(PDO::FETCH_OBJ);
 //fetchALL se tra ve du lieu nhieu hon 1 ket qua
 $rows = $stmt->fetchAll();
-
+$count_query = "SELECT * FROM products";
+$query = $conn->prepare($count_query);
+$query->execute();
+$count = $query->rowCount();
+// calculate the pagination number by dividing total number of rows with per page.
+$paginations = ceil($count / $per_page);
 $sql3 = "SELECT COUNT('id_product') as soluong FROM `products` WHERE products.Garbage_can is  NULL";
 $stmt3 = $conn->query($sql3);
 $stmt3->setFetchMode(PDO::FETCH_OBJ);
@@ -138,11 +156,10 @@ $rows2 = $stmt2->fetch();
                                     class="img-circle"><span class="text-white font-medium">Đăng xuất</span></a> -->
  
 <?php
-session_start();
 
 if($_SESSION["name_client"]) {
 ?>
- <?php echo $_SESSION["name_client"]; ?>.  <a href="../login/logout.php" >
+ <b style="color: white;"><?php echo $_SESSION["name_client"]; ?></b>.  <a href="../login/logout.php" >
 <img src="../plugins/images/users/thang.jpg" alt="user-img" width="36"class="img-circle"><span class="text-white font-medium">  
 
                         </li>
@@ -292,6 +309,66 @@ if($_SESSION["name_client"]) {
                 <!-- ============================================================== -->
                 <!-- PRODUCTS YEARLY SALES -->
                 <!-- ============================================================== -->
+
+                <table class="table">
+    <tr class="thead-dark">
+    <th id = "a">ID</th>
+        <th>Tên sản phẩm</th>
+        <th>Danh mục sản phẩm</th>
+        <th>Size</th>
+        <th>Ảnh</th>
+        <th>Mô tả</th>
+        <th>Giá</th>
+ 
+     
+
+
+    </tr>
+    <?php foreach($rows as $key=>$value) : ?>
+    <tr>
+    <td><?=$value->id_product?></td>
+        <td><?=$value->name_product?></td>
+        <td><?=$value->name_category?></td>
+        <td><?=$value->size?></td>
+        <td><img src="<?= '../products/'.$value->image?>" style = "width: 100px" alt=""></td>
+        <td><?=$value->desc?></td>
+      
+        <td><?=number_format($value->price)." VNĐ"?></td>
+       
+    </tr>
+    <?php endforeach; ?>
+ 
+
+    
+</table>
+<nav aria-label="...">
+  <ul class="pagination">
+<?php
+
+                if($page_counter == 0){
+                    for($j=0; $j < $paginations; $j++) {
+                        if($j == $page_counter) {
+                           echo "<li class='page-item '><a class='page-link' href=?start=$j >".$j."</a></li>";
+                        }else{
+                           echo "<li class='page-item '><a href=?start=$j class='page-link'>".$j."</a></li>";
+                        } 
+                     }if($j != $page_counter+1)
+                       echo "<li class='page-item'><a href=?start=$next class='page-link'>Next</a></li>";   
+                }else{
+                    echo "<li><a href=?start=$previous>Previous</a></li>"; 
+                    for($j=0; $j < $paginations; $j++) {
+                     if($j == $page_counter) {
+                        echo "<li class='page-item '><a class='page-link' href=?start=$j >".$j."</a></li>";
+                     }else{
+                        echo "<li class='page-item '><a href=?start=$j class='page-link'>".$j."</a></li>";
+                     } 
+                  }if($j != $page_counter+1)
+                    echo "<li class='page-item'><a href=?start=$next class='page-link'>Next</a></li>"; 
+                } 
+            ?>
+ </ul>
+</nav>
+
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="white-box">
@@ -327,34 +404,6 @@ if($_SESSION["name_client"]) {
 
 
 
-<table class="table">
-    <tr class="thead-dark">
-    <th id = "a">ID</th>
-        <th>Tên sản phẩm</th>
-        <th>Danh mục sản phẩm</th>
-        <th>Size</th>
-        <th>Ảnh</th>
-        <th>Mô tả</th>
-        <th>Giá</th>
- 
-     
-
-
-    </tr>
-    <?php foreach($rows as $key=>$value) : ?>
-    <tr>
-    <td><?=$key+1?></td>
-        <td><?=$value->name_product?></td>
-        <td><?=$value->name_category?></td>
-        <td><?=$value->size?></td>
-        <td><img src="<?= '../products/'.$value->image?>" style = "width: 100px" alt=""></td>
-        <td><?=$value->desc?></td>
-      
-        <td><?=number_format($value->price)." VNĐ"?></td>
-       
-    </tr>
-    <?php endforeach; ?>
-</table>
 
                 <div class="row">
                     <!-- .col -->
